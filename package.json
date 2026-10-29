@@ -1,0 +1,29 @@
+{
+  "name": "website",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "oxlint",
+    "preview": "vite preview",
+    "deploy": "vite build && aws s3 sync dist/ s3://rmiranda.com.br --delete --cache-control \"public, max-age=300\" && aws s3 cp dist/index.html s3://rmiranda.com.br/privacy --content-type text/html --cache-control \"public, max-age=300\""
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.3.3",
+    "lucide-react": "^1.64.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "tailwindcss": "^4.3.3"
+  },
+  "devDependencies": {
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.2",
+    "imagetracerjs": "^1.2.6",
+    "oxlint": "^1.89.0",
+    "pngjs": "^7.0.0",
+    "vite": "^8.3.5"
+  }
+}

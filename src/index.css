@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font-mono: "Cascadia Code", "JetBrains Mono", Consolas, ui-monospace, monospace;
+
+  /* Green accent scale — brand green #25552a (netrunner.com.br) + neon highlight for dark mode */
+  --color-accent-50: #e9f9ef;
+  --color-accent-100: #c9f2d9;
+  --color-accent-200: #93e6b4;
+  --color-accent-300: #50dc8c;
+  --color-accent-400: #00e676;
+  --color-accent-500: #00c853;
+  --color-accent-600: #2e7d32;
+  --color-accent-700: #25552a;
+  --color-accent-800: #1d4322;
+  --color-accent-900: #142f18;
+
+  /* Green-tinted dark surfaces (reference layout) + neutral light shades */
+  --color-slate-50: #f5f8f6;
+  --color-slate-100: #e8efe9;
+  --color-slate-200: #d6e1d8;
+  --color-slate-300: #b4c2b7;
+  --color-slate-400: #84948a;
+  --color-slate-500: #757575;
+  --color-slate-600: #4e5c53;
+  --color-slate-700: #39453e;
+  --color-slate-800: #1c2a21;
+  --color-slate-900: #101814;
+  --color-slate-950: #0a0f0d;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-white text-slate-700 antialiased dark:bg-slate-950 dark:text-slate-300;
+}
+
+::selection {
+  @apply bg-accent-500/25 text-accent-700 dark:text-accent-300;
+}
+
+/* Subtle circuit-style grid for the hero (dark mode) */
+.circuit-bg {
+  background-image:
+    linear-gradient(to right, rgb(0 230 118 / 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(0 230 118 / 0.04) 1px, transparent 1px);
+  background-size: 42px 42px;
+}
