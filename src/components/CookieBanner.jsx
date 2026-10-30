@@ -1,6 +1,9 @@
 import { Cookie } from 'lucide-react'
+import { useLanguage } from '../i18n/LanguageContext'
 
 export default function CookieBanner({ onAccept, onDecline }) {
+  const { t } = useLanguage()
+  const c = t.ui.cookie
   return (
     <div
       role="dialog"
@@ -13,32 +16,30 @@ export default function CookieBanner({ onAccept, onDecline }) {
         </span>
         <div>
           <p className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-slate-900 dark:text-white">
-            Cookies
+            {c.title}
           </p>
           <p className="mt-1 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
-            This site uses cookies to remember your theme preference and Google Analytics to
-            understand how visitors use the site. No data is sold or shared with other third
-            parties. See the{' '}
+            {c.text}{' '}
             <a
               href="/privacy"
               className="font-semibold text-accent-700 underline dark:text-accent-400"
             >
-              Privacy Policy
+              {c.privacyLink}
             </a>
-            . Do you accept?
+            . {c.question}
           </p>
           <div className="mt-4 flex flex-wrap gap-3">
             <button
               onClick={onAccept}
               className="rounded-md bg-accent-700 px-5 py-2 text-sm font-bold text-white transition hover:bg-accent-800 dark:bg-accent-400 dark:text-slate-950 dark:hover:bg-accent-300"
             >
-              Accept
+              {c.accept}
             </button>
             <button
               onClick={onDecline}
               className="rounded-md border border-slate-300 px-5 py-2 text-sm font-semibold text-slate-600 transition hover:border-slate-400 dark:border-slate-700 dark:text-slate-300 dark:hover:border-slate-500"
             >
-              Decline
+              {c.decline}
             </button>
           </div>
         </div>

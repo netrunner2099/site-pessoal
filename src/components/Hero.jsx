@@ -1,6 +1,6 @@
 import { Boxes, CheckCircle2, Cloud, Container, Database, FolderGit2, Mail } from 'lucide-react'
 import { GithubIcon, LinkedinIcon } from './BrandIcons'
-import { heroTech, profile, stats } from '../data/resume'
+import { useLanguage } from '../i18n/LanguageContext'
 
 function CodeWindow() {
   return (
@@ -81,6 +81,8 @@ function CodeWindow() {
 }
 
 export default function Hero() {
+  const { t } = useLanguage()
+  const { profile, stats, heroTech } = t
   return (
     <section id="home" className="relative overflow-hidden border-b border-slate-200 pt-16 dark:border-slate-800">
       <div className="circuit-bg pointer-events-none absolute inset-0 opacity-0 dark:opacity-100" />
@@ -113,13 +115,13 @@ export default function Hero() {
               href="#contact"
               className="rounded-md bg-accent-700 px-6 py-3 text-sm font-bold text-white transition hover:bg-accent-800 dark:bg-accent-400 dark:text-slate-950 dark:shadow-[0_0_24px_rgb(0_230_118/0.35)] dark:hover:bg-accent-300"
             >
-              Get in touch
+              {t.ui.hero.getInTouch}
             </a>
             <a
               href="#projects"
               className="rounded-md border border-accent-700 px-6 py-3 text-sm font-bold text-accent-700 transition hover:bg-accent-700/10 dark:border-accent-400 dark:text-accent-400 dark:hover:bg-accent-400/10"
             >
-              View projects
+              {t.ui.hero.viewProjects}
             </a>
           </div>
 

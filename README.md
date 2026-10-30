@@ -14,8 +14,17 @@ npm run deploy   # build + publish to S3 (production: https://rmiranda.com.br)
 
 ## Customizing your content
 
-All résumé content lives in a single file: [`src/data/resume.js`](./src/data/resume.js).
-Edit the exported objects (`profile`, `about`, `experience`, `skills`, `projects`, `education`, `certifications`) to update what is shown on the site — no component changes needed.
+All résumé content lives in two mirrored files — one per language:
+
+- [`src/data/resume.en.js`](./src/data/resume.en.js) — English content
+- [`src/data/resume.pt.js`](./src/data/resume.pt.js) — Portuguese (PT-BR) content
+
+Edit the exported object (`profile`, `about`, `experience`, `skills`, `projects`, `education`,
+`certifications`, `ui`) in both files to update what is shown on the site — no component changes
+needed. Technology badge links are shared in [`src/data/techLinks.js`](./src/data/techLinks.js).
+
+The language is auto-detected from the browser (PT for pt-* locales, EN otherwise), can be switched
+with the EN/PT toggle in the navbar, and the choice is persisted in a cookie after consent.
 
 Optional assets (place them in the `public/` folder and update `src/data/resume.js`):
 

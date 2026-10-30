@@ -1,13 +1,15 @@
-import { skills } from '../data/resume'
+import { useLanguage } from '../i18n/LanguageContext'
 import Section from './Section'
 
 export default function Skills() {
+  const { t } = useLanguage()
+  const { skills } = t
   return (
     <Section
       id="skills"
-      eyebrow="What I Do"
-      title="Skills"
-      subtitle="Technologies and practices I work with."
+      eyebrow={t.ui.sections.skills.eyebrow}
+      title={t.ui.sections.skills.title}
+      subtitle={t.ui.sections.skills.subtitle}
     >
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {skills.map((group) => (

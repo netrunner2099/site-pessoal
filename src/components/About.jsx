@@ -1,10 +1,12 @@
 import { CheckCircle2 } from 'lucide-react'
-import { about, profile } from '../data/resume'
+import { useLanguage } from '../i18n/LanguageContext'
 import Section from './Section'
 
 export default function About() {
+  const { t } = useLanguage()
+  const { about, profile } = t
   return (
-    <Section id="about" eyebrow="Who I Am" title="About Me">
+    <Section id="about" eyebrow={t.ui.sections.about.eyebrow} title={t.ui.sections.about.title}>
       <div className="grid gap-10 md:grid-cols-5">
         <div className="space-y-4 md:col-span-3">
           {about.paragraphs.map((paragraph) => (

@@ -1,14 +1,16 @@
 import { ExternalLink, Folder } from 'lucide-react'
-import { projects } from '../data/resume'
+import { useLanguage } from '../i18n/LanguageContext'
 import Section from './Section'
 
 export default function Projects() {
+  const { t } = useLanguage()
+  const { projects } = t
   return (
     <Section
       id="projects"
-      eyebrow="What I've Built"
-      title="Highlighted Work"
-      subtitle="Selected projects and long-term deliveries."
+      eyebrow={t.ui.sections.projects.eyebrow}
+      title={t.ui.sections.projects.title}
+      subtitle={t.ui.sections.projects.subtitle}
     >
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {projects.map((project) => {

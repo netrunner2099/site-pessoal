@@ -1,14 +1,20 @@
 import { Award, GraduationCap } from 'lucide-react'
-import { certifications, education } from '../data/resume'
+import { useLanguage } from '../i18n/LanguageContext'
 import Section from './Section'
 
 export default function Education() {
+  const { t } = useLanguage()
+  const { education, certifications } = t
   return (
-    <Section id="education" eyebrow="How I Learned" title="Education & Certifications">
+    <Section
+      id="education"
+      eyebrow={t.ui.sections.education.eyebrow}
+      title={t.ui.sections.education.title}
+    >
       <div className="grid gap-10 md:grid-cols-2">
         <div>
           <h3 className="mb-5 flex items-center gap-2 text-lg font-bold text-slate-900 dark:text-white">
-            <GraduationCap size={22} className="text-accent-500" /> Education
+            <GraduationCap size={22} className="text-accent-500" /> {t.ui.educationLabels.education}
           </h3>
           <div className="space-y-4">
             {education.map((item) => (
@@ -35,7 +41,7 @@ export default function Education() {
 
         <div>
           <h3 className="mb-5 flex items-center gap-2 text-lg font-bold text-slate-900 dark:text-white">
-            <Award size={22} className="text-accent-500" /> Certifications
+            <Award size={22} className="text-accent-500" /> {t.ui.educationLabels.certifications}
           </h3>
           <div className="space-y-4">
             {certifications.map((cert) => (

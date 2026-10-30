@@ -1,48 +1,52 @@
 import { FileDown, FileText, Mail, MapPin } from 'lucide-react'
 import { GithubIcon, LinkedinIcon, WhatsappIcon } from './BrandIcons'
-import { profile } from '../data/resume'
+import { useLanguage } from '../i18n/LanguageContext'
 import Section from './Section'
 
-const items = [
-  {
-    icon: Mail,
-    label: 'Email',
-    value: profile.email,
-    href: `mailto:${profile.email}`,
-  },
-  {
-    icon: WhatsappIcon,
-    label: 'WhatsApp',
-    value: profile.phone,
-    href: `https://wa.me/${profile.phone.replace(/\D/g, '')}`,
-  },
-  {
-    icon: LinkedinIcon,
-    label: 'LinkedIn',
-    value: 'Connect with me',
-    href: profile.social.linkedin,
-  },
-  {
-    icon: GithubIcon,
-    label: 'GitHub',
-    value: 'See my code',
-    href: profile.social.github,
-  },
-  ...(profile.resumePdf
-    ? [{ icon: FileDown, label: 'Résumé / CV', value: 'Download PDF', href: profile.resumePdf, download: true }]
-    : []),
-  ...(profile.coverLetterPdf
-    ? [{ icon: FileText, label: 'Cover Letter', value: 'Download PDF', href: profile.coverLetterPdf, download: true }]
-    : []),
-]
-
 export default function Contact() {
+  const { t } = useLanguage()
+  const { profile } = t
+  const labels = t.ui.contact
+
+  const items = [
+    {
+      icon: Mail,
+      label: labels.email,
+      value: profile.email,
+      href: `mailto:${profile.email}`,
+    },
+    {
+      icon: WhatsappIcon,
+      label: labels.whatsapp,
+      value: profile.phone,
+      href: `https://wa.me/${profile.phone.replace(/\D/g, '')}`,
+    },
+    {
+      icon: LinkedinIcon,
+      label: labels.linkedin,
+      value: labels.linkedinValue,
+      href: profile.social.linkedin,
+    },
+    {
+      icon: GithubIcon,
+      label: labels.github,
+      value: labels.githubValue,
+      href: profile.social.github,
+    },
+    ...(profile.resumePdf
+      ? [{ icon: FileDown, label: labels.resume, value: labels.downloadPdf, href: profile.resumePdf, download: true }]
+      : []),
+    ...(profile.coverLetterPdf
+      ? [{ icon: FileText, label: labels.coverLetter, value: labels.downloadPdf, href: profile.coverLetterPdf, download: true }]
+      : []),
+  ]
+
   return (
     <Section
       id="contact"
-      eyebrow="Let's Talk"
-      title="Get In Touch"
-      subtitle="I'm open to new opportunities and collaborations. Feel free to reach out!"
+      eyebrow={t.ui.sections.contact.eyebrow}
+      title={t.ui.sections.contact.title}
+      subtitle={t.ui.sections.contact.subtitle}
     >
       <div className="grid gap-4 sm:grid-cols-2">
         {items.map((item) => (
@@ -69,7 +73,7 @@ export default function Contact() {
         ))}
       </div>
       <p className="mt-8 flex items-center justify-center gap-1.5 text-sm text-slate-500 dark:text-slate-400">
-        <MapPin size={14} /> Based in {profile.location}
+        <MapPin size={14} /> {labels.basedIn} {profile.location}
       </p>
     </Section>
   )

@@ -1,14 +1,17 @@
 import { Briefcase, MapPin } from 'lucide-react'
-import { experience, techLinks } from '../data/resume'
+import { techLinks } from '../data/techLinks'
+import { useLanguage } from '../i18n/LanguageContext'
 import Section from './Section'
 
 export default function Experience() {
+  const { t } = useLanguage()
+  const { experience } = t
   return (
     <Section
       id="experience"
-      eyebrow="Where I've Worked"
-      title="Experience"
-      subtitle="My professional journey so far."
+      eyebrow={t.ui.sections.experience.eyebrow}
+      title={t.ui.sections.experience.title}
+      subtitle={t.ui.sections.experience.subtitle}
     >
       <ol className="relative space-y-10 border-s-2 border-slate-200 ps-8 dark:border-slate-800">
         {experience.map((job) => (

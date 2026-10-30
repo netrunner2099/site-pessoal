@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { useCookieConsent } from './hooks/useCookieConsent'
 import { useTheme } from './hooks/useTheme'
+import { LanguageProvider } from './i18n/LanguageContext'
 import { loadGoogleAnalytics } from './utils/analytics'
 import { GA_MEASUREMENT_ID } from './config'
 import Navbar from './components/Navbar'
@@ -29,7 +30,7 @@ export default function App() {
   }, [isPrivacyPage])
 
   return (
-    <>
+    <LanguageProvider consentGiven={consent === 'accepted'}>
       <Navbar theme={theme} toggleTheme={toggleTheme} />
       {isPrivacyPage ? (
         <PrivacyPolicy />
@@ -52,6 +53,6 @@ export default function App() {
       )}
       <Footer />
       {consent === null && <CookieBanner onAccept={accept} onDecline={decline} />}
-    </>
+    </LanguageProvider>
   )
 }
