@@ -58,7 +58,7 @@ export default function Contact() {
               <item.icon size={20} />
             </span>
             <span>
-              <span className="block text-xs font-semibold uppercase tracking-wider text-slate-400 dark:text-slate-500">
+              <span className="block text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">
                 {item.label}
               </span>
               <span className="block font-medium text-slate-800 dark:text-slate-200">
