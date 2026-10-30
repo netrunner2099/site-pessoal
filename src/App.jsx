@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { lazy, Suspense, useEffect } from 'react'
 import { useCookieConsent } from './hooks/useCookieConsent'
 import { useTheme } from './hooks/useTheme'
 import { LanguageProvider } from './i18n/LanguageContext'
@@ -14,7 +14,9 @@ import Education from './components/Education'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import CookieBanner from './components/CookieBanner'
-import PrivacyPolicy from './components/PrivacyPolicy'
+
+// Loaded on demand — almost no visitor opens the privacy page
+const PrivacyPolicy = lazy(() => import('./components/PrivacyPolicy'))
 
 export default function App() {
   const { consent, accept, decline } = useCookieConsent()
@@ -33,7 +35,9 @@ export default function App() {
     <LanguageProvider consentGiven={consent === 'accepted'}>
       <Navbar theme={theme} toggleTheme={toggleTheme} />
       {isPrivacyPage ? (
-        <PrivacyPolicy />
+        <Suspense fallback={null}>
+          <PrivacyPolicy />
+        </Suspense>
       ) : (
         <main>
           <Hero />

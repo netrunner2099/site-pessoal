@@ -13,7 +13,7 @@ export default {
     email: 'rodrigo@rmiranda.com.br',
     phone: '+55 11 99983-2400',
     website: 'https://rmiranda.com.br',
-    avatar: '/avatar.jpg',
+    avatar: '/avatar.webp',
     resumePdf: '/resume.pdf',
     coverLetterPdf: '/cover-letter.pdf',
     social: {

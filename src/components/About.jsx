@@ -29,7 +29,7 @@ export default function About() {
         <div className="md:col-span-2">
           <figure className="overflow-hidden rounded-2xl border border-slate-200 shadow-lg dark:border-accent-400/25 dark:shadow-[0_0_40px_rgb(0_230_118/0.08)]">
             <img
-              src="/about-photo.jpg"
+              src="/about-photo.webp"
               alt={`${profile.name} at the Netrunner Tecnologia office`}
               loading="lazy"
               className="h-full w-full object-cover"
