@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { FileDown, Menu, Moon, Sun, X } from 'lucide-react'
+import { FileDown, Globe, Menu, Moon, Sun, X } from 'lucide-react'
 import { useLanguage } from '../i18n/LanguageContext'
 
 const linkIds = ['about', 'experience', 'skills', 'projects', 'contact']
@@ -15,9 +15,9 @@ export default function Navbar({ theme, toggleTheme }) {
     <button
       onClick={toggleLang}
       aria-label="Switch language"
-      className={`rounded-md px-2 py-2 font-mono text-xs font-bold uppercase tracking-[0.15em] text-slate-600 transition hover:bg-slate-100 hover:text-accent-700 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-accent-400 ${extra}`}
+      className={`flex items-center gap-1.5 rounded-md px-2 py-2 font-mono text-xs font-bold uppercase tracking-[0.15em] text-slate-600 transition hover:bg-slate-100 hover:text-accent-700 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-accent-400 ${extra}`}
     >
-      {lang === 'en' ? 'PT' : 'EN'}
+      <Globe size={15} /> {lang === 'en' ? 'PT' : 'EN'}
     </button>
   )
 
