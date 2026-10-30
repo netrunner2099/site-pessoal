@@ -1,5 +1,5 @@
-import { FileDown, FileText, Mail, MapPin, Phone } from 'lucide-react'
-import { GithubIcon, LinkedinIcon } from './BrandIcons'
+import { FileDown, FileText, Mail, MapPin } from 'lucide-react'
+import { GithubIcon, LinkedinIcon, WhatsappIcon } from './BrandIcons'
 import { profile } from '../data/resume'
 import Section from './Section'
 
@@ -11,10 +11,10 @@ const items = [
     href: `mailto:${profile.email}`,
   },
   {
-    icon: Phone,
-    label: 'Phone',
+    icon: WhatsappIcon,
+    label: 'WhatsApp',
     value: profile.phone,
-    href: `tel:${profile.phone.replace(/[^+\d]/g, '')}`,
+    href: `https://wa.me/${profile.phone.replace(/\D/g, '')}`,
   },
   {
     icon: LinkedinIcon,
